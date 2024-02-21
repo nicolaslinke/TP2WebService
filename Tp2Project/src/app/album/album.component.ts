@@ -21,4 +21,8 @@ export class AlbumComponent implements OnInit {
       this.albums = await this.spotify.getAlbums(this.artistID);
     }
   }
+
+  async getSongs(id : string) {
+    this.spotify.getSongs(id);
+  }
 }

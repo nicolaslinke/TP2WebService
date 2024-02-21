@@ -26,7 +26,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       {path: "", redirectTo: "/artist", pathMatch: "full"},
       {path: "artist", component: ArtistComponent},
-      {path: "song", component: SongComponent},
+      {path: "song/:albumID", component: SongComponent},
       {path: "album/:artistID", component: AlbumComponent},
       {path: "show", component: ShowComponent}
     ])

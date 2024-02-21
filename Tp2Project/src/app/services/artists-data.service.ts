@@ -30,6 +30,6 @@ export class ArtistsDataService {
   }
 
   async saveData(): Promise<void> {
-    sessionStorage.setItem("artistsFavoris", JSON.stringify(this.artistsFavoris));
+    localStorage.setItem("artistsFavoris", JSON.stringify(this.artistsFavoris));
   }
 }

@@ -6,36 +6,8 @@
             <div *ngFor="let a of albums">
                 <h4>{{a.name}}</h4>
                 <img [src]="a.imageUrl" [alt]="a.name">
-                <button>Chansons</button>
+                <button [routerLink]="['/song',a.id]">Chansons</button>
             </div>
-
-            <!-- Liste d'albums d'un artiste choisi -->
-            <div>
-                <h4>Album 1</h4>
-                <img src="assets/images/album.png" alt="album 1">
-                <button>Chansons</button>
-            </div>
-            <div>
-                <h4>Album 2</h4>
-                <img src="assets/images/album.png" alt="album 2">
-                <button>Chansons</button>
-            </div>
-            <div>
-                <h4>Album 3</h4>
-                <img src="assets/images/album.png" alt="album 3">
-                <button>Chansons</button>
-            </div>
-            <div>
-                <h4>Album 4</h4>
-                <img src="assets/images/album.png" alt="album 4">
-                <button>Chansons</button>
-            </div>
-            <div>
-                <h4>Album 5</h4>
-                <img src="assets/images/album.png" alt="album 5">
-                <button>Chansons</button>
-            </div>
-
         </div>
     </div>
 </div>

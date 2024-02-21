@@ -56,4 +56,20 @@ export class SpotifyService {
     }
     return albums;
   }
+
+  //Obtenir une liste de chanson d'un album en utilisant son id
+  async getSongs(id : string): Promise<string[]> {
+    let songs : string[] = [];
+    const httpOptions = { headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + this.spotifyToken
+    })};
+    
+    let x = await lastValueFrom(this.http.get<any>('https://api.spotify.com/v1/albums/' + id + '/tracks', httpOptions));
+    console.log(x);
+    for (let i = 0; i < x.items.length; i++) {
+      songs.push(x.items[i].name);
+    }
+    return songs;
+  }
 }
