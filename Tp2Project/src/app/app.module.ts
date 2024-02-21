@@ -7,6 +7,8 @@ import { AlbumComponent } from './album/album.component';
 import { ShowComponent } from './show/show.component';
 import { SongComponent } from './song/song.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [				
@@ -18,6 +20,8 @@ import { RouterModule } from '@angular/router';
    ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule,
     RouterModule.forRoot([
       {path: "", redirectTo: "/artist", pathMatch: "full"},
