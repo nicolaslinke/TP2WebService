@@ -1,3 +1,4 @@
+import { Album } from './../models/album';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
@@ -28,6 +29,7 @@ export class SpotifyService {
       this.spotifyToken = x.access_token;
   }
 
+  //Obtenir un artiste à partir d'une recherche
   async searchArtist(artist : string): Promise<Artist> {
     const httpOptions = { headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -38,6 +40,15 @@ export class SpotifyService {
     console.log(x);
     return new Artist(x.artists.items[0].id, x.artists.items[0].name, x.artists.items[0].images[0].url);
   }
+
+  //Obtenir une liste d'album d'un artiste en utilisant son id
+  async getAlbums(id : string): Promise<void> {
+    const httpOptions = { headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + this.spotifyToken
+    })};
     
-  
+    let x = await lastValueFrom(this.http.get<any>('https://api.spotify.com/v1/artists/' + id + '/albums', httpOptions));
+    console.log(x);
+  }
 }

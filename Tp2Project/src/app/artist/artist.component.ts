@@ -27,4 +27,13 @@ export class ArtistComponent implements OnInit {
     //this.artist = await this.spotify.searchArtist(this.artistName);
     await this.artistsData.addData(await this.spotify.searchArtist(this.artistName));
   }
+
+  async clearArtists() : Promise<void>{
+    // Allo 👋
+    await this.artistsData.clearData();
+  }
+
+  async pageAlbums(artist : Artist) : Promise<void>{
+    this.spotify.getAlbums(artist.id);
+  }
 }

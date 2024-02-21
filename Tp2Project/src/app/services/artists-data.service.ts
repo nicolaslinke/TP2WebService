@@ -13,7 +13,7 @@ export class ArtistsDataService {
   constructor() { }
 
   async initData(): Promise<void> {
-    this.jsonData = sessionStorage.getItem("artistsFavoris");
+    this.jsonData = localStorage.getItem("artistsFavoris");
     if(this.jsonData != null) {
       this.artistsFavoris = JSON.parse(this.jsonData);
     }
@@ -24,8 +24,12 @@ export class ArtistsDataService {
     this.saveData();
   }
 
-  saveData():void{
-    // METTRE this.profile DANS LE STOCKAGE LOCAL 💾
+  async clearData(): Promise<void> {
+    this.artistsFavoris = [];
+    this.saveData();
+  }
+
+  async saveData(): Promise<void> {
     sessionStorage.setItem("artistsFavoris", JSON.stringify(this.artistsFavoris));
   }
 }
