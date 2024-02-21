@@ -27,7 +27,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       {path: "", redirectTo: "/artist", pathMatch: "full"},
       {path: "artist", component: ArtistComponent},
       {path: "song", component: SongComponent},
-      {path: "album", component: AlbumComponent},
+      {path: "album/:artistID", component: AlbumComponent},
       {path: "show", component: ShowComponent}
     ])
   ],

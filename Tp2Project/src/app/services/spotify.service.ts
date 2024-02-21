@@ -42,7 +42,8 @@ export class SpotifyService {
   }
 
   //Obtenir une liste d'album d'un artiste en utilisant son id
-  async getAlbums(id : string): Promise<void> {
+  async getAlbums(id : string): Promise<Album[]> {
+    let albums : Album[] = [];
     const httpOptions = { headers: new HttpHeaders({
       'Content-Type':  'application/json',
       'Authorization': 'Bearer ' + this.spotifyToken
@@ -50,5 +51,9 @@ export class SpotifyService {
     
     let x = await lastValueFrom(this.http.get<any>('https://api.spotify.com/v1/artists/' + id + '/albums', httpOptions));
     console.log(x);
+    for (let i = 0; i < x.items.length; i++) {
+      albums.push(new Album(x.items[i].id, x.items[i].name, x.items[i].images[0].url))
+    }
+    return albums;
   }
 }
