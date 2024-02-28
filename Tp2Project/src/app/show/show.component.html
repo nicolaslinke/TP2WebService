@@ -1,37 +1,24 @@
 
 <h3>Concerts de l'artiste X</h3>
 <div class="row">
-    <img src="assets/images/googlemap.png" alt="Google Map" class="map">
-
+    <div>
+        <google-map
+        [center]="center"
+        [zoom]="zoom"
+        width="970"
+        height="600">
+        <map-marker
+        *ngFor="let marker of markerPositions"
+        [position]="marker">
+        </map-marker>
+        </google-map>
+    </div>
     <div class="shows">
-
           <!-- Liste des concerts -->
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
+        <div *ngFor="let c of concerts">
+            <h4>{{c.date}}</h4>
+            <p>{{c.pays}}</p>
+            <p>{{c.ville}}</p>
         </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-
     </div>           
-
 </div>

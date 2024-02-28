@@ -9,6 +9,7 @@ import { SongComponent } from './song/song.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [				
@@ -22,6 +23,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    GoogleMapsModule,
     RouterModule,
     RouterModule.forRoot([
       {path: "", redirectTo: "/artist", pathMatch: "full"},
