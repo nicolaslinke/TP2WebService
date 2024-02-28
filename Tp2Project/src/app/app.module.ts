@@ -28,7 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       {path: "artist", component: ArtistComponent},
       {path: "song/:albumID", component: SongComponent},
       {path: "album/:artistID", component: AlbumComponent},
-      {path: "show", component: ShowComponent}
+      {path: "show/:artist", component: ShowComponent}
     ])
   ],
   providers: [],

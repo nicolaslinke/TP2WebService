@@ -13,7 +13,7 @@
             <div *ngFor="let a of artistsData.artistsFavoris">
                 <h4>{{a.name}}</h4>
                 <img [src]="a.imageUrl" [alt]="a.name">
-                <button [routerLink]="['/album',a.id]">Albums</button><button>Concerts</button>
+                <button [routerLink]="['/album',a.id]">Albums</button><button [routerLink]="['/show',a.name]">Concerts</button>
             </div>
         </div>
         <button (click)="clearArtists()" class="btn btn-light">Supprimer</button>
