@@ -2,13 +2,14 @@
 <h3>Chansons de l'album X</h3>
 <div class="row">
     <div class="youtubePlayer">
-        <img src="assets/images/yourubeplayer.png" alt="Youtube player">
+        <iframe width="560" height="315" [src]="getSafeUrl()" title="Youtube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gryoscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="songs">
         <div class="songList">
             <div *ngFor="let s of songs">
                 <p>{{s}}</p>
-                <button>Jouer</button>
+                <button (click)="searchVideo(s)">Jouer</button>
             </div>
         </div>
     </div>
