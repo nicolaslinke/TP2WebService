@@ -1,5 +1,5 @@
 
-<h3>Chansons</h3>
+<h3 translate>song.songs</h3>
 <div class="row">
     <div class="youtubePlayer">
         <iframe width="560" height="315" [src]="getSafeUrl()" title="Youtube video player"
@@ -9,7 +9,7 @@
         <div class="songList">
             <div *ngFor="let s of songs">
                 <p>{{s}}</p>
-                <button (click)="searchVideo(s)">Jouer</button>
+                <button (click)="searchVideo(s)" translate>song.play</button>
             </div>
         </div>
     </div>

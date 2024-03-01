@@ -1,0 +1,24 @@
+{
+    "app":{
+        "rights":"All rights reserved to Spotify, BandsInTown and Google"
+    },
+    "artist.compenent":{
+        "addArtist":"Add an artist",
+        "yourArtists":"Artists",
+        "albums":"Albums",
+        "concerts":"Concerts",
+        "delete":"Supprimer",
+        "search":"Rechercher"
+    },
+    "show":{
+        "concertsOf":"Concerts of {{artist}}"
+    },
+    "album":{
+        "albums":"Albums",
+        "songs":"Songs"
+    },
+    "song":{
+        "songs":"Songs",
+        "play":"Play"
+    }
+}

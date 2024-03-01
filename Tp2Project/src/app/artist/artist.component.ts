@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Artist } from '../models/artist';
 import { SpotifyService } from '../services/spotify.service';
 import { ArtistsDataService } from '../services/artists-data.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-artist',
@@ -15,7 +16,9 @@ export class ArtistComponent implements OnInit {
   spotifyToken ?: string;
   artistsFavoris : Artist[] = [];
 
-  constructor(public spotify : SpotifyService, public artistsData : ArtistsDataService) { }
+
+  constructor(public spotify : SpotifyService, public artistsData : ArtistsDataService) { 
+  }
 
   ngOnInit() {
     this.spotify.connect();

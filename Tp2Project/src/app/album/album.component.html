@@ -1,12 +1,12 @@
 
 <div class="row">
     <div class="albums">
-        <h3>Albums de l'artiste X</h3>
+        <h3 translate>album.albums</h3>
         <div class="row">
             <div *ngFor="let a of albums">
                 <h4>{{a.name}}</h4>
                 <img [src]="a.imageUrl" [alt]="a.name">
-                <button [routerLink]="['/song',a.id]">Chansons</button>
+                <button [routerLink]="['/song',a.id]" translate>album.songs</button>
             </div>
         </div>
     </div>

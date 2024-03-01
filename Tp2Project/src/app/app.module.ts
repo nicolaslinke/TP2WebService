@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [				
@@ -31,9 +33,20 @@ import { GoogleMapsModule } from '@angular/google-maps';
       {path: "song/:albumID", component: SongComponent},
       {path: "album/:artistID", component: AlbumComponent},
       {path: "show/:artist", component: ShowComponent}
-    ])
+    ]),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http : HttpClient) {
+  return new TranslateHttpLoader(http);
+}

@@ -16,7 +16,7 @@ export class ShowComponent implements OnInit {
 
   constructor(public route : ActivatedRoute, public bandsInTown : BandsInTownService) { }
 
-  center : google.maps.LatLngLiteral = {lat: 42, lng: -4};
+  center : google.maps.LatLngLiteral = {lat: 0, lng: 0};
   zoom : number = 5;
   markerPositions : google.maps.LatLngLiteral[] = [];
 
@@ -24,10 +24,10 @@ export class ShowComponent implements OnInit {
     this.artist = this.route.snapshot.paramMap.get("artist");
     if (this.artist != null) {
       this.concerts = await this.bandsInTown.getConcerts(this.artist);
-      console.log(this.concerts);
       for (let i = 0; i < this.concerts.length; i++) {
-        this.markerPositions.push({lat: this.concerts[i].latitude, lng : this.concerts[i].longitude});
+        this.markerPositions.push({lat: parseFloat(this.concerts[i].latitude), lng : parseFloat(this.concerts[i].longitude)});
       }
+      if (this.concerts.length > 0) this.center = {lat: parseFloat(this.concerts[0].latitude), lng: parseFloat(this.concerts[0].longitude)};
     }
   }
 }
